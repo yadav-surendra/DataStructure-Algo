@@ -52,7 +52,7 @@ int main() {
 }
 
 */
-
+// moores algorithm.
 int moore(vector<int> nums){
     int n= nums.size();
     int freq=0, ans;
@@ -73,7 +73,7 @@ int moore(vector<int> nums){
 }
 
 int main(){
-    vector<int> vec={1,2,2,2,3};
+    vector<int> vec={1,2,2,3,3,3,2};
     int result= moore(vec);
     cout<<result<<endl;
     return 0;
