@@ -20,7 +20,7 @@ int main(){
     cout<<"the max sum of the subarray is "<< maxSum;
 */
     
-    // with kadane's algorithm, it will be much efficient with linear time complexity.
+    // with kadane's algorithm, it will be much efficient with linear time complexity. this algorithm gives the maximum of a subarray frfom the given array.
     int arr[] = {-1,4,-8,-2,5,-6,12};
     int maxSum=INT16_MIN;
     int curr_sum=0;
