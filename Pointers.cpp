@@ -35,5 +35,15 @@ int main()
 
     change(a);
     cout<<"the changed value of a in alias method is: "<< a<<endl;
+
+    int arr[]={10,20,0,40};
+    int *new_ptr = arr;
+
+    cout<< *(new_ptr)<<endl;   //10
+    cout<< *(new_ptr+1)<<endl;  //20
+    cout<< *(new_ptr+3)<<endl;  //40
+    new_ptr++;
+    cout<< *(new_ptr+1)<<endl;  //0
+
     return 0;
 }
