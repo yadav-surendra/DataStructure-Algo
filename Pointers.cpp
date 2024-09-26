@@ -1,6 +1,17 @@
 #include<iostream>
 using namespace std;
 
+// pass by reference using pointer
+void change_value(int* p)
+{
+    *p = 20;
+}
+
+// pass by reference using alias variable. here b is masde alias of a using & symbol.
+void change(int &b){
+    b=30;
+}
+
 int main()
 {
     int a= 10;
@@ -19,5 +30,10 @@ int main()
     cout<<*ptr2<<endl;    // prints the value at address pointed by ptr2 (i.e addrerss of a)
     cout<<**ptr2<<endl;   // prints the value at addrerss (*ptr2) (i.e value ataddress of a)
 
+    change_value(&a);
+    cout<<"changed value of a is: "<< a<<endl;
+
+    change(a);
+    cout<<"the changed value of a in alias method is: "<< a<<endl;
     return 0;
 }
