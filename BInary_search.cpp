@@ -12,7 +12,9 @@ int BinarySearch(vector<int> arr , int target){
     int end = n-1;
     int mid ;
     while(st<=end){
-        mid = (st+end)/2;
+        //mid = (st+end)/2;
+        // inorder to optimize our code for long integer valur in the worst case, we will be using this formula.
+        mid = st + (end - st) / 2;
         if(arr[mid]<target)
         st = mid + 1;
         else if(arr[mid]>target)
