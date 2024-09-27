@@ -56,7 +56,7 @@ int main()
 {
     vector<int> vec = {1, 3, 6, 8, 12, 15, 20, 24, 26, 30, 31};
 
-    int target = 15;
+    int target = -15;
     int ans = BinarySearch(vec, target, 0, vec.size() - 1);
     cout << ans;
 
