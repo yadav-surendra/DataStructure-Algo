@@ -1,0 +1,3 @@
+/*
+binary search is applicable only on sorted arrays.
+*/
