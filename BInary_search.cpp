@@ -1,5 +1,7 @@
 /*
 binary search is applicable only on sorted arrays.
+The time complexity of the binary search is O(logn).
+It is highly optimized algorithm than linear search algorithm.
 */
 
 #include<iostream>
