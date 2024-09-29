@@ -4,20 +4,24 @@
 using namespace std;
 
 int main() {
-    vector<int> vec = {1, 2, 1, 5, 8, 10, 14};
-    int size = vec.size();
+    vector<int> arr = {1, 2, 1, 5, 8, 10, 14};
+    int size = arr.size();
     int i = 0;
 
-    while (i < size) {
-        int minimum = INT16_MAX;  // Reset minimum for each starting position i
-        for (int j = i; j < size; j++) {
-            minimum = min(minimum, vec[j]);  // Find the minimum in the range [i, size)
+    for(int i=0; i<size-1; i++)
+    {
+        for(int j=i+1; j<size; j++)
+        {
+            if(arr[j]<arr[i])
+            {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
         }
-        vec[i] = minimum;  // Replace element at i with the minimum value
-        i++;
     }
 
-    for (int i : vec) {
+    for (int i : arr) {
         cout << i << " ";
     }
     return 0;
