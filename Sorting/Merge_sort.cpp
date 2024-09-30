@@ -3,67 +3,86 @@
 
 using namespace std;
 
-void merge(vector<int> arr, int l, int mid, int r)
+// Merge two subarrays of arr[].
+// First subarray is arr[l..mid]
+// Second subarray is arr[mid+1..r]
+void merge(vector<int>& arr, int l, int mid, int r)
 {
-    int n1= mid-l+1;
-    int n2= r-mid;
+    int n1 = mid - l + 1;
+    int n2 = r - mid;
 
-    int a[n1];
-    int b[n2];
+    // Create temporary arrays
+    vector<int> a(n1);
+    vector<int> b(n2);
 
-    for(int i=0; i<n1; i++){
-        a[i]=arr[l+i];
-    }
-    for(int i=0; i<n2; i++)
+    // Copy data to temporary arrays a[] and b[]
+    for(int i = 0; i < n1; i++)
+        a[i] = arr[l + i];
+    for(int j = 0; j < n2; j++)
+        b[j] = arr[mid + 1 + j];
+
+    // Merge the temporary arrays back into arr[l..r]
+    int i = 0; // Initial index of first subarray
+    int j = 0; // Initial index of second subarray
+    int k = l; // Initial index of merged subarray
+
+    while(i < n1 && j < n2)
     {
-        b[i]=arr[mid+1+i];
-    }
-
-    int i=0;    //traverses array a
-    int j=0;    //traverses array b
-    int k=l;
-    while(i<n1 && j<n2)
-    {
-        if(a[i]<b[j])
+        if(a[i] <= b[j])
         {
-            arr[k]=a[i];
-            k++;
+            arr[k] = a[i];
             i++;
         }
-        else{
-            arr[k]=a[j];
-            k++;
+        else
+        {
+            arr[k] = b[j];
             j++;
         }
+        k++;
     }
-    while(i<n1)
+
+    // Copy the remaining elements of a[], if any
+    while(i < n1)
     {
-        arr[k]=a[i];
-            k++;
-            i++;
+        arr[k] = a[i];
+        i++;
+        k++;
     }
-    while(j<n2)
+
+    // Copy the remaining elements of b[], if any
+    while(j < n2)
     {
-        arr[k]=a[j];
-            k++;
-            j++;
+        arr[k] = b[j];
+        j++;
+        k++;
     }
 }
 
-
-void mergeSort(vector<int> arr, int l, int r)
+// l is for left index and r is right index of the subarray of arr to be sorted
+void mergeSort(vector<int>& arr, int l, int r)
 {
-    if(l<r)
+    if(l < r)
     {
-        int mid = (l+r)/2;
-        mergeSort(arr,l,mid);
-        mergeSort(arr,mid+1,r);
-        merge(arr,l,mid,r);
+        // Same as (l + r) / 2, but avoids overflow for large l and r
+        int mid = l + (r - l) / 2;
+
+        // Sort first and second halves
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
+
+        merge(arr, l, mid, r);
     }
 }
 
-int main(){
-    vector<int> arr = {2,1,5,7,3,9,4};
+int main()
+{
+    vector<int> arr = {2, 1, 5, 7, 3, 9, 4};
+    mergeSort(arr, 0, arr.size() - 1);
 
+    // Print sorted array
+    for(int i : arr)
+    {
+        cout << i << " ";
+    }
     return 0;
 }
