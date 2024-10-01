@@ -38,7 +38,7 @@ void quickSort(int arr[], int low, int high)
 }
 int main()
 {
-    int arr[] = {4, 3, 5, 8, 7, 9, 1, 2};
+    int arr[] = {4, 3, -5, 8, 17, 9, 1, -2,10,2,3};
     int n = sizeof(arr) / sizeof(arr[0]);
     int low = 0;
     int high = n - 1;
