@@ -1,0 +1,4 @@
+Quick sort is a sorting algorithm that worls on the principle of divide and conquer. 
+It has time complexity of O(nlogn) in the average cases.
+But in the worst case, it's time comlexity is of O(n2).
+The worst case arises when the last element i.e the pivot element is the largest or the smallest elmeent of the array. That means the array is either in ascending oredr or descending order.
