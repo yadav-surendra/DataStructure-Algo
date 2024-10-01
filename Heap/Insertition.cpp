@@ -11,7 +11,8 @@ public:
     }
     void insert(int n)
     {
-        int index = size+1;
+        size++;
+        int index = size;
         int parent = index/2;
     while(index>1)
     {
@@ -19,8 +20,7 @@ public:
         {
             swap(arr[index],arr[parent]);
         }
-        else 
-        return;
+       
     }         
     }
 
