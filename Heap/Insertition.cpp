@@ -4,26 +4,33 @@ using namespace std;
 class heap{
     int arr[100];
     int size;
+
 public:
     heap(){
         arr[0] = -1;
         size = 0;
     }
-    void insert(int n)
+    void insert(int val)
     {
         size++;
         int index = size;
-        int parent = index/2;
-    while(index>1)
+        arr[index] = val;
+
+    while(index > 1)
     {
-        if(arr[index] > arr[parent])
+        int parent = index/2;
+        if(arr[parent] < arr[index])
         {
-            swap(arr[index],arr[parent]);
+            swap(arr[parent],arr[index]);
+            index = parent;
         }
+        // else{
+        //     return;
+        // }
        
     }         
     }
-
+    
     void print()
     {
         for(int i=1; i<=size; i++)
