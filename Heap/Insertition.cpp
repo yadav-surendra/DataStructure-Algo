@@ -65,7 +65,7 @@ public:
                 swap(arr[i], arr[left]);
                 i = left;
             }
-            else if ((left < size) && arr[i] < arr[right])
+            else if ((right < size) && arr[i] < arr[right])
             {
                 swap(arr[i], arr[right]);
                 i = right;
@@ -96,7 +96,7 @@ int main()
     h.insert(30);
     h.insert(15);
     h.insert(45);
-    h.insert(100);
+    h.insert(10);
 
 
     h.print();
