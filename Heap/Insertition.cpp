@@ -36,6 +36,47 @@ public:
         }
     }
 
+    // To delete from heap.
+    // There are 3 steps  ivolved:
+    // 1. Put the element to be deleted with the first element.
+    // 2. Delete the last node.
+    // 3. take the first element to it's right place.
+
+    void deleteFromHeap()
+    {
+        if (size == 0)
+        {
+            cout << "There is nothing to delete." << endl;
+            return;
+        }
+        // putting last node at the firdt node and deleting the last node.
+        arr[1] = arr[size];
+        size--;
+
+        int i = 1;
+
+        while (i < size)
+        {
+            int left = 2 * i;
+            int right = 2 * i + 1;
+
+            if ( (left < size) && (arr[i] < arr[left]))
+            {
+                swap(arr[i], arr[left]);
+                i = left;
+            }
+            else if ((left < size) && arr[i] < arr[right])
+            {
+                swap(arr[i], arr[right]);
+                i = right;
+            }
+            else
+            {
+                return;
+            }
+        }
+    }
+
     void print()
     {
         for (int i = 1; i <= size; i++)
@@ -57,5 +98,13 @@ int main()
     h.insert(45);
 
     h.print();
+
+    h.deleteFromHeap();
+    h.print();
     return 0;
 }
+
+/*
+Note:
+The time complexity of insertition is O(logn).
+*/
