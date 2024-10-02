@@ -110,4 +110,5 @@ int main()
 /*
 Note:
 The time complexity of insertition is O(logn).
+The time complexity of deletition is alos O(logn).
 */
