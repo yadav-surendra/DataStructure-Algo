@@ -96,8 +96,11 @@ int main()
     h.insert(30);
     h.insert(15);
     h.insert(45);
+    h.insert(100);
+
 
     h.print();
+    cout<<" the output after deleting the first node."<< endl;
 
     h.deleteFromHeap();
     h.print();
