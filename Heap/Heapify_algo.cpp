@@ -43,3 +43,8 @@ int main()
 
     return 0;
 }
+
+/*
+The time complexity of heapify ALgorithm is O(logn).
+And the time complexity for building the heap is O(n).
+*/
