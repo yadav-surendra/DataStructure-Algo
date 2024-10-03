@@ -18,6 +18,15 @@ int main()
     cout<< pq.top()<<endl;
     cout<<pq.size()<<endl;
 
+    if(pq.empty())
+    {
+        cout<<"The queue is empty."<<endl;
+    }
+    else{
+        cout<<"THe queue s not empty."<<endl;
+    }
+
+// Now lets see how we can make min-heap using priority queue stl.
     return 0;
 
 }
