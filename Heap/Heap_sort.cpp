@@ -65,3 +65,5 @@ int main()
     }cout<<endl;
     return 0;
 }
+
+// the time complexity of heap sirt is of O(nlogn).
