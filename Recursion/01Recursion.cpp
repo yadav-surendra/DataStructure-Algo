@@ -3,18 +3,31 @@
 #include <iostream>
 using namespace std;
 
-void printNum(int n)
+// void printNumFrom5to1(int n)
+// {
+//     if(n>0)
+//     {
+//         cout<<n<<" ";
+//         n--;
+//         printNumFrom5to1(n);
+//     }
+// }
+// to print numbers from one to five.
+void printNumFrom1to5(int m, int n)
 {
-    if(n>0)
+    // Base case
+    if(m>n)
     {
-        cout<<n<<" ";
-        n--;
-        printNum(n);
+        return;
     }
+    
+    cout<<m<<" ";
+    printNumFrom1to5(m+1,n);
+
 }
 
 int main()
 {
-    printNum(5);
+    printNumFrom1to5(0,5);
     return 0;
 }
