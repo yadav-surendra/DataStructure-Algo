@@ -17,8 +17,9 @@ void fibo(int a, int b, int n){
 
 int main(){
     int a=0, b=1, n=10;
-    // n is the number of terms.
+    // n is the number of terms that is to be printed in the series.
     cout<<a<<" "<<b<<" ";
+    // Two terms of the series are alredy printed in the main function so (n-2) id passed to the function call.
     fibo(a,b,n-2);
 
     return 0;
