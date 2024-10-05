@@ -2,6 +2,9 @@
 using namespace std;
 
 int power(int x, int n){
+    //Bases cases.
+    // if the power of any number becomes 0 then itd value is by default 1.
+    // and if the number itself is 0 then it will remain 0 for any value of n.
     if(n==0)
     {
         return 1;
