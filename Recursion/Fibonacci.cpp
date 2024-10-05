@@ -3,6 +3,7 @@ using namespace std;
 
 void fibo(int a, int b, int n){
     // base case.
+    // Base case should be written at the begining of the function.
     if(n==0)
     {
         return;
