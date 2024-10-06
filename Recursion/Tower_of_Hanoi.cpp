@@ -1,9 +1,11 @@
 #include <iostream>
 using namespace std;
 
-void Tower_of_hanoi(int n, string src, string helper, string dest) {
+void Tower_of_hanoi(int n, string src, string helper, string dest)
+{
     // Base case
-    if (n == 1) {
+    if (n == 1)
+    {
         cout << "Transferred disc " << n << " from " << src << " to " << dest << endl;
         return; // Important to return after printing
     }
@@ -15,8 +17,13 @@ void Tower_of_hanoi(int n, string src, string helper, string dest) {
     Tower_of_hanoi(n - 1, helper, src, dest);
 }
 
-int main() {
+int main()
+{
     int n = 3; // Number of discs
     Tower_of_hanoi(n, "S", "H", "D");
     return 0;
 }
+
+/*
+The time complexity if tower of hanoi is O(2^n - 1) or simply O(2^n).
+*/
