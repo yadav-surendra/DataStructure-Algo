@@ -27,6 +27,8 @@ void move_X(string str, int idx, int count, string new_str)
 int main(){
     string str="abxcxdxx";
     move_X(str,0,0,"");
-    
+
     return 0;
 }
+
+// Time cimplexity in worst case will be O(n).
