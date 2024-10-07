@@ -42,3 +42,5 @@ int main()
 
     return 0;
 }
+
+// Since we have treversed only once through out the process in our code, so it's time complexity will be O(n).
