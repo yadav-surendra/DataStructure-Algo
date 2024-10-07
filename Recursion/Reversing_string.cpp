@@ -23,3 +23,5 @@ int main()
     reverse(s,len-1);
     return 0;
 }
+
+// The time complexity of this code is O(n).
