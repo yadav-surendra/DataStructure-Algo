@@ -25,3 +25,5 @@ int main(){
 
     return 0;
 }
+
+// It's time complexity is 0(n*n!).
