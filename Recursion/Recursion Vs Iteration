@@ -1,0 +1,27 @@
+Recursion and iteration are two different techniques for solving problems, particularly useful in programming when you need to perform a repetitive task. Here’s a breakdown of their key differences:
+
+Defination:
+Recursion is a function that calls itself again and again until the base cindition is met. Whereas Iteration is a set of instructions that is run repeatedly in a loop.
+
+Approach:
+In recursion, we solve the problem by breaking it into smaller problems whereas in iteration, we repeat a block of code until a condition is met.
+
+Memory usage:
+Recursion uses more memory due to call stack frames but Iteration is more memory efficient due to fixed staack space.
+
+Code Reradibility:
+Recursion makes the code more readable than Iteration. It is easier to test and debug the recusion than the iteration.
+
+Termination:
+Rcursion requires a base case to terminate whereas in Iteration, it terminates when a specified condition is satisfifed.
+
+Performance:
+Recursion can be slower due to stack overhead. Iterations aregenerally more faster due to absence of stack call overhead.
+
+Usage:
+Recursion is generally used to solve a complex problem using a recurive function whereas Iteration is used to sove any problem with known number of iteration.
+
+
+
+
+
