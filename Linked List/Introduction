@@ -1,0 +1,6 @@
+What is Linked List?
+It is a data structure which consists of collection of nodes.
+Nodes store a value and address that points to the next value.
+
+Why do we need Linked list?
+Linked list serves as a dynamic data structure. In array, if we have created an array of a particular size lets say 10 then during the runtime we can't change tne size of that array. To overcome that problem in programming , we needed linked list.
