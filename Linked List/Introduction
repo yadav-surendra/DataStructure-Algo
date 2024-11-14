@@ -4,3 +4,10 @@ Nodes store a value and address that points to the next value.
 
 Why do we need Linked list?
 Linked list serves as a dynamic data structure. In array, if we have created an array of a particular size lets say 10 then during the runtime we can't change tne size of that array. To overcome that problem in programming , we needed linked list.
+
+Linked list is an efficient data structure. Insertion and deletion is easy.
+
+There are 3 types of linked list:
+1. Singly linked list
+2. Doubly linked list
+3. Circular linked list
