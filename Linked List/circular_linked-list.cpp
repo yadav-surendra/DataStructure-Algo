@@ -43,17 +43,47 @@ void print(Node* &tail)
 
 void insert(Node* &tail, int element, int d)
 {
-    Node* temp = new Node(d);
 
+    //empty list
     if(tail == NULL)
     {
+        Node* temp = new Node(d);
         tail = temp;
         temp->next = temp;
     }
     else
     {
-        temp->next = tail;
-        tail->next = temp;
+        // non empty list
+        Node* curr = tail;
+        bool found = false;
+
+        do{
+            if(curr->data == element)
+            {
+                found = true;
+                break;
+            }
+            curr = curr->next;
+
+        }while(curr != tail);
+
+        // insert the node after the found node.
+       
+        if(found)
+        {
+            Node* temp = new Node(d);
+
+            temp->next = curr->next;
+            curr-> next = temp;
+        }
+        else{
+            // this is the case when the element is not found.
+            // so insert the node at the end.
+            Node* temp = new Node(d);
+            temp->next = tail->next;
+            tail->next = temp;
+        }
+ 
     }
 }
 
@@ -62,8 +92,13 @@ int main()
     Node* node1 = new Node(4);
     Node* tail = node1;
 
-    insert(tail,10,10);
-
+    insert(tail,4,10);
     print(tail);
+    insert(tail,4,20);
+    // print(tail);
+    // insert(tail,10,25);
+     print(tail);
+    cout<<tail->data<<endl;
+    
     return 0;
 }

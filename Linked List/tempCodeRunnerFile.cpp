@@ -1,5 +1,2 @@
-else
-    // {
-    //     temp->next = tail;
-    //     tail->next = temp;
-    // }
+ insert(tail,120,5);
+     print(tail);
