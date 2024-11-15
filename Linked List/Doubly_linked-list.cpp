@@ -171,7 +171,6 @@ void deleteNode(int position, Node* & head) {
         //curr -> next -> prev = prev;
         curr -> next = NULL;
        
-    
         delete curr;
     }
 }
@@ -206,7 +205,7 @@ int main()
     print(head);
     cout<<endl;
 
-    deleteNode(4,head);
+    deleteNode(3,head);
     print(head);
     return 0;
 }
