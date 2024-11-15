@@ -16,6 +16,17 @@ class Node{
         this -> next = NULL;
 
     }
+
+    //destructor
+    ~Node() {
+        int value = this -> data;
+        //memory free
+        if(this->next != NULL) {
+            delete next;
+            this->next = NULL;
+        }
+        cout << " memory is free for node with data " << value << endl;
+    }
 };
 
 // Traversing on linked list
@@ -130,6 +141,40 @@ void insertAtTail(Node* &tail,Node* &head, int d) {
 
  }
 
+// deletition in douobly linked list
+void deleteNode(int position, Node* & head) { 
+
+    //deleting first or start node
+   if(position == 1)
+   {
+    Node* temp = head;
+    temp->next->prev = NULL;
+    head = temp->next;
+    temp -> next = NULL;
+    delete temp;
+   }
+    else
+    {
+        //deleting any middle node or last node
+        Node* curr = head;
+        Node* prev = NULL;
+
+        int cnt = 1;
+        while(cnt < position) {
+            prev = curr;
+            curr = curr -> next;
+            cnt++;
+        }
+
+        curr -> prev = NULL;
+        prev -> next = curr -> next;
+        //curr -> next -> prev = prev;
+        curr -> next = NULL;
+       
+    
+        delete curr;
+    }
+}
 
 
 int main()
@@ -161,5 +206,7 @@ int main()
     print(head);
     cout<<endl;
 
+    deleteNode(4,head);
+    print(head);
     return 0;
 }
