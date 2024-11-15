@@ -45,12 +45,21 @@ int getLength(Node* head)
     return count;
 }
 
-void insertAtHead(Node* &head, int d)
+void insertAtHead(Node* &tail, Node* &head, int d)
 {
+    if(head == NULL)
+    {
+    Node* temp = new Node(d);
+    head = temp;
+    tail = temp;
+    }
+    else{
     Node* temp = new Node(d);
     temp->next = head;
     head->prev = temp;
     head = temp;
+    }
+
 }
 
 // void insertAtHead(Node*& head, int d) {
@@ -63,11 +72,22 @@ void insertAtHead(Node* &head, int d)
 // }
 
 
-void insertAtTail(Node* &tail, int d) {
+void insertAtTail(Node* &tail,Node* &head, int d) {
+
+    if(tail == NULL)
+    {
+        Node* temp = new Node(d);
+        head = temp;
+        tail = temp;
+    }
+    else
+    {
     Node* temp = new Node(d);
     tail->next = temp;
     temp->prev = tail;
     tail = temp;
+    }
+    
 }
 
 // insert at any position
@@ -76,7 +96,7 @@ void insertAtTail(Node* &tail, int d) {
     // insert at start
     if(position == 1)
     {
-        insertAtHead(head,d);
+        insertAtHead(tail,head,d);
         return;
     }
 
@@ -92,7 +112,7 @@ void insertAtTail(Node* &tail, int d) {
     // inserting at last position
     if(temp -> next == NULL)
     {
-        insertAtTail(tail,d);
+        insertAtTail(tail,head,d);
         return;
     }
 
@@ -114,21 +134,21 @@ void insertAtTail(Node* &tail, int d) {
 
 int main()
 {
-    Node* node1 = new Node(5);
+    //Node* node1 = new Node(5);
     // cout<<node1->data<<endl;
 
-    Node* head = node1;
-    Node* tail = node1;
+    Node* head = NULL;
+    Node* tail = NULL;
     // print(head);
    // cout<<endl;
    // cout<<"the length of the linked list is "<<getLength(head);
 
-    insertAtHead(head,10);
+    insertAtHead(tail,head,10);
    // insertAtHead(head,20);
     //print(head);
 
 
-     insertAtTail(tail,100);
+     insertAtTail(tail,head,100);
     // insertAtTail(tail,200);
      print(head);
      cout<<endl;
@@ -137,7 +157,7 @@ int main()
     print(head);
     cout<<endl;
 
-    insertAtPosition(tail,head,5,17);
+    insertAtPosition(tail,head,4,17);
     print(head);
     cout<<endl;
 
