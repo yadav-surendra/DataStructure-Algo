@@ -122,6 +122,47 @@ void print(Node* &head) {
     cout << endl;
 }
 
+// to reverse a linked list using iterative technique.
+Node* reverseLinkedList(Node* head)
+{
+    // if the linked list is empty or contais only one node.
+   if(head == NULL || head->next == NULL)
+   {
+    return head;
+   }
+   // if the linked list contains more than one node.
+   Node* prev = NULL;
+   Node* curr = head;
+   Node* forward = NULL;
+
+   while(curr != NULL)
+   {
+    forward = curr->next;
+    curr->next = prev;
+    prev = curr;
+    curr = forward;
+   }
+// return prev because at the end prev pointer will become the head.
+   return prev; 
+
+}
+
+// to reverse a linked list using recursive technique
+/*Node* reverseLinkedList(Node* head)
+{
+    //base case
+    if(head == NULL || head->next == NULL)
+    {
+        return head;
+    }
+
+    Node* chhotahead = reverseLinkedList(head->next);
+    head->next->next = head;
+    head->next = NULL;
+
+    return chhotahead;
+}
+*/
 
 int main()
 {
@@ -137,11 +178,17 @@ int main()
     insertAtHead(head,20);
     insertAtHead(head,30);
     insertAtHead(head,25);
+    insertAtHead(head,35);
+    insertAtHead(head,50);
    // cout<<head->data;
 
     print(head);
     deleteNode(4,head);
     print(head);
+
+    cout<<"Printing the reverse linked list "<<endl;
+    Node * h = reverseLinkedList(head);
+    print(h);
 
     return 0;
 }
