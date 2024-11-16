@@ -148,3 +148,7 @@ int main()
 
     return 0;
 }
+
+/*  NOTE
+the time complexity of finding the middle value through this method id of order O(n).
+*/
