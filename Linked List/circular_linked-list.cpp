@@ -1,104 +1,198 @@
-// for more information and notes on circuklar linked list, visit this website: https://www.geeksforgeeks.org/circular-linked-list/
 
 #include<iostream>
+#include<map>
 using namespace std;
 
-class Node{
+class Node {
     public:
     int data;
     Node* next;
 
-
-    Node(int d)
-    {
+    //constrcutor
+    Node(int d) {
         this->data = d;
         this->next = NULL;
     }
 
-    ~Node()
-    {
-        int value = this-> data;
-
-        if(this->next != NULL)
-        {
+    ~Node() {
+        int value = this->data;
+        if(this->next != NULL) {
             delete next;
             next = NULL;
-            cout<<"THe node with value "<<value<<" is deleted."<<endl;
         }
+        cout << " memory is free for node with data " << value << endl;
     }
 
 };
 
-void print(Node* &tail)
-{
-    Node* temp =tail;
-
-    while(temp != NULL)
-    {
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-
-void insert(Node* &tail, int element, int d)
-{
+void insertNode(Node* &tail, int element, int d) {
+    
 
     //empty list
-    if(tail == NULL)
-    {
-        Node* temp = new Node(d);
-        tail = temp;
-        temp->next = temp;
+    if(tail == NULL) {
+        Node* newNode = new Node(d);
+        tail = newNode;
+        newNode -> next = newNode;
     }
-    else
-    {
-        // non empty list
+    else{
+        //non-empty list
+        //assuming that the element is present in the list
+
         Node* curr = tail;
-        bool found = false;
 
-        do{
-            if(curr->data == element)
-            {
-                found = true;
-                break;
-            }
-            curr = curr->next;
-
-        }while(curr != tail);
-
-        // insert the node after the found node.
-       
-        if(found)
-        {
-            Node* temp = new Node(d);
-
-            temp->next = curr->next;
-            curr-> next = temp;
+        while(curr->data != element) {
+            curr = curr -> next;
         }
-        else{
-            // this is the case when the element is not found.
-            // so insert the node at the end.
-            Node* temp = new Node(d);
-            temp->next = tail->next;
-            tail->next = temp;
-        }
- 
+        
+        //element found -> curr is representing element wala node
+        Node* temp = new Node(d);
+        temp -> next = curr -> next;
+        curr -> next = temp;
+
     }
+
+}    
+
+void print(Node* tail) {
+
+    Node* temp = tail;
+
+    //empty list
+    if(tail == NULL) {
+        cout << "List is Empty "<< endl;
+        return ;
+    }
+
+    do {
+        cout << tail -> data << " ";
+        tail = tail -> next;
+    } while(tail != temp);
+
+    cout << endl;
+} 
+
+void deleteNode(Node* &tail, int value) {
+
+    //empty list
+    if(tail == NULL) {
+        cout << " List is empty, please check again" << endl;
+        return;
+    }
+    else{
+        //non-empty
+
+        //assuming that "value" is present in the Linked List
+        Node* prev = tail;
+        Node* curr = prev -> next;
+
+        while(curr -> data != value) {
+            prev = curr;
+            curr = curr -> next;
+        }
+
+        prev -> next = curr -> next;
+
+        //1 Node Linked List
+        if(curr == prev) {
+            tail = NULL;
+        }
+
+        //>=2 Node linked list
+        else if(tail == curr->next) {
+            tail = prev;
+        }
+
+        curr -> next = NULL;
+        delete curr;
+
+    }
+
 }
 
-int main()
-{
-    Node* node1 = new Node(4);
-    Node* tail = node1;
+bool isCircularList(Node* head) {
+    //empty list
+    if(head == NULL) {
+        return true;
+    }
 
-    insert(tail,4,10);
+    Node* temp = head -> next;
+    while(temp != NULL && temp != head ) {
+        temp = temp -> next;
+    }
+
+    if(temp == head ) {
+        return true;
+    }
+
+    return false;
+
+}
+
+bool detectLoop(Node* head) {
+
+    if(head == NULL)
+        return false;
+
+    map<Node*, bool> visited;
+
+    Node* temp = head;
+
+    while(temp !=NULL) {
+
+        //cycle is present
+        if(visited[temp] == true) {
+            return true;
+        }
+
+        visited[temp] = true;
+        temp = temp -> next;
+
+    }
+    return false;
+
+}
+
+
+int main() {
+
+    Node* tail = NULL;
+
+   insertNode(tail, 5, 3);
     print(tail);
-    insert(tail,4,20);
+
+   insertNode(tail, 3, 5);
+   print(tail);
+
+
+    // insertNode(tail, 5, 7);
     // print(tail);
-    // insert(tail,10,25);
-     print(tail);
-    cout<<tail->data<<endl;
+
+    // insertNode(tail, 7, 9);
+    // print(tail);
+
+    // insertNode(tail, 5, 6);
+    // print(tail);
     
+    // insertNode(tail, 5, 10);
+    // print(tail);
+
+    // insertNode(tail, 3, 4);
+    // print(tail);
+    // cout<<tail->data<<endl;
+   
+
+    deleteNode(tail, 5);
+    print(tail);
+    
+    deleteNode(tail,3);
+    print(tail);
+
+    // if(isCircularList(tail)) {
+    //     cout << " Linked List is Circular in nature" << endl;
+    // }
+    // else{
+    //     cout << "Linked List is not Circular " << endl;
+    // }
+
     return 0;
 }

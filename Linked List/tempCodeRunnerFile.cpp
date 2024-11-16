@@ -1,2 +1,4 @@
- insert(tail,120,5);
-     print(tail);
+the tail
+            // if (curr == tail) {
+            //     tail = newNode;
+            // }
