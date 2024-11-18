@@ -93,7 +93,7 @@ void print(Node* &head) {
     cout << endl;
 }
 
-
+/*
 int getLength(Node* head)
 {
     int len = 0;
@@ -121,6 +121,37 @@ int getMiddleNode(Node* head)
     return temp->data;
 
 }
+*/
+
+Node* getMiddleNode(Node* head)
+{
+    // if the linked list is empty or single node
+    if(head == NULL || head->next == NULL)
+    return head;
+
+    // for linked list with two nodes
+    if(head->next->next == NULL)
+    {
+        return head->next;
+    }
+
+    // for more than two nodes
+    Node* slow = head;
+    Node* fast = head->next;
+
+    while(fast != NULL)
+    {
+        slow = slow->next;
+        fast = fast->next;
+        if(fast != NULL)
+        {
+            fast = fast->next;
+        }
+       
+    }
+    return slow;
+
+}
 
 int main()
 {
@@ -136,14 +167,10 @@ int main()
     insertAtHead(head,20);
     insertAtHead(head,30);
     insertAtHead(head,25);
-    insertAtHead(head,35);
-    insertAtHead(head,50);
-    insertAtHead(head,70);
-   // cout<<head->data;
-
+   
    print(head);
-   int val = getMiddleNode(head);
-   cout<<"The middle node's data is: "<<val<<endl;
+   Node* val = getMiddleNode(head);
+   cout<<"The middle node's data is: "<<val->data<<endl;
 
 
     return 0;
