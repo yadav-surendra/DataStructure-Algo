@@ -15,6 +15,7 @@
 
 *****************************************************************/
 
+/*
 
 Node* kReverse(Node* head, int k) {
     //base call
@@ -44,3 +45,5 @@ Node* kReverse(Node* head, int k) {
     //step3: return head of reversed list
     return prev;
 }
+
+*/
