@@ -131,8 +131,8 @@ bool isCircularList(Node* head) {
 bool detectLoop(Node* head)
 {
     // empty list
-    if(head == NULL)
-    return false;
+    // if(head == NULL)
+    // return false;
 
     map< Node*, bool> mp;
     Node* temp = head;
@@ -142,9 +142,11 @@ bool detectLoop(Node* head)
         if(mp[temp] == true)
         {
             return true;
+           
         }
 
-        mp.insert({temp, true});
+        //mp.insert({temp, true});
+        mp[temp] = true;
         temp = temp->next;
     }
 
@@ -182,11 +184,11 @@ int main() {
     // cout<<tail->data<<endl;
    
 
-    deleteNode(tail, 5);
-    print(tail);
+    // deleteNode(tail, 5);
+    // print(tail);
     
-    deleteNode(tail,3);
-    print(tail);
+    // deleteNode(tail,3);
+    // print(tail);
 
     if(isCircularList(tail)) {
         cout << " Linked List is Circular in nature" << endl;
@@ -194,7 +196,7 @@ int main() {
     else{
         cout << "Linked List is not Circular " << endl;
     }
-    
+
     bool loop = detectLoop(tail);
     if(loop)
     {
