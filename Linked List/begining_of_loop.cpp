@@ -13,6 +13,7 @@
     };
 
 *************************************************/
+/*
 
 Node* floydDetectLoop(Node* head) {
 
@@ -80,3 +81,5 @@ Node *removeLoop(Node *head)
     temp -> next = NULL;
     return head;
 }
+
+*/
