@@ -165,7 +165,7 @@ bool detectLoop(Node* head)
     return false;
 
     // for non-emptylist
-    while(fast != NULL )
+    while(slow != NULL && fast != NULL )
     {
         fast = fast->next;
         if(fast->next != NULL)
