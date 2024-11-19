@@ -90,30 +90,25 @@ Node* removeDuplicates(Node* head)
 
     Node* temp = head;
     
-    while(temp != NULL)
+    while(temp->next != NULL)
     {
-        Node* prev = temp;
-        Node* forward = temp->next;
+        Node* curr = temp;
 
-        while(forward != NULL)
+        while(curr != NULL)
         {
-            if(temp->data == forward->data)
+            if((curr->next != NULL) && temp->data == curr->next->data)
             {
-                Node* toDelete = forward;
-                prev->next = forward->next; // Skip the duplicate node
-                forward = forward->next; // Move forward pointer
-                delete toDelete; // Free memory
+                Node* next_next = curr->next->next;
+                Node* nodeToDelete = curr->next;
+                delete nodeToDelete;
+                curr->next = next_next;
             }
-            else
-            {
-                prev = forward; // Move prev to the current forward
-                forward = forward->next; // Move forward pointer
+            else{
+                curr = curr->next;
             }
         }
-
-        temp = temp->next; // Move to the next node
+        temp = temp->next;
     }
-
     return head;
 }
 
@@ -121,9 +116,6 @@ int main()
 {
     Node* head = NULL;
     insertAtHead(head,15);
-    insertAtHead(head,12);
-    insertAtHead(head,12);
-    insertAtHead(head,2);
     insertAtHead(head,2);
     insertAtHead(head,4);
     insertAtHead(head,5);
@@ -133,6 +125,9 @@ int main()
 
     print(head);
     cout<<head->data<<endl;
+
+    Node* curr = head;
+    //cout<<curr->next->data;
 
     removeDuplicates(head);
     print(head);
