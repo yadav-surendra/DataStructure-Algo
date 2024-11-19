@@ -128,6 +128,7 @@ bool isCircularList(Node* head) {
 
 }
 
+
 bool detectLoop(Node* head) {
 
     if(head == NULL)
