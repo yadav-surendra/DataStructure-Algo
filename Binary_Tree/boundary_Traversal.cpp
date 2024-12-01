@@ -1,6 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+struct Node
+{
+    int data;
+    Node* left;
+    Node* right;
+};
+
 class Solution {
 public:
     void traverseLeft(Node* root, vector<int> &ans) {
