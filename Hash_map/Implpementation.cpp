@@ -44,6 +44,27 @@ int main()
     m.erase("love");
     cout << m.size() << endl;
 
+/*
+
+    // to iterate on map
+    // method 1.
+    cout<<"Printing the data of map" << endl;
+    for(auto i: m)
+    {
+        cout<< i.first <<" : "<< i.second << endl;
+    }
+
+*/ 
+
+    // method 2:
+    unordered_map<string,int>::iterator it = m.begin();
+    while(it != m.end())
+    {
+        cout<< it->first <<" "<< it->second << endl;
+        it++;
+    }
+
+
 
     return 0;
 }
