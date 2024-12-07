@@ -44,8 +44,17 @@ int main()
     cout<<"Enter the number of nodes and edges:"<<endl;
     cin>>n>>m;
 
-    g.addEdge(n,m,0);
+    // give data for edges 
+    for(int i=0; i<m; i++)
+    {
+        int u, v;
+        cin >> u>> v;
 
+        g.addEdge(u,v,0);
+    }
+
+    // printing the edges
+    cout<<"Printing the graph"<<endl;
     g.printEdges();
 
     return 0;
