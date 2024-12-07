@@ -3,11 +3,12 @@
 #include<list>
 using namespace std;
 
+template <typename T>
 class graph {
-    unordered_map<int, list<int>> adj;
+    unordered_map< T , list<T>> adj;
 
     public:
-     void addEdge(int u, int v, bool direction)
+     void addEdge(T u, T v, bool direction)
      {
         adj[u].push_back(v);
 
@@ -38,7 +39,7 @@ class graph {
 
 int main()
 {
-    graph g;
+    graph<int> g;
 
     int n,m;
     cout<<"Enter the number of nodes and edges:"<<endl;
