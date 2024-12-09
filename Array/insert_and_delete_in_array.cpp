@@ -19,6 +19,23 @@ void insert(int arr[], int &size, int data, int pos) {
     size++;
 }
 
+void remove(int arr[], int &size, int pos)
+{
+    if (pos < 0 || pos >= size) {
+        cout << "Invalid position. Valid positions are from 0 to " << size << "." << endl;
+        return;
+    }
+
+    for(int i=pos; i<size-1; i++)
+    {
+        arr[i] = arr[i+1];
+    }
+
+    // decrement size
+    size--;
+
+}
+
 int main() {
     int arr[100]; // Declare an array with a capacity of 100
     int size = 0; // Start with an empty array
@@ -30,18 +47,24 @@ int main() {
     insert(arr, size, 4, 3);
     insert(arr, size, 10, 4);
 
-    // Display the size
-    cout << "Size: " << size << endl;
-
     // Insert another element
     insert(arr, size, 8, 2);
     insert(arr, size, 18, 6);
-    insert(arr, size, 8, 10);
+   // insert(arr, size, 8, 10);
+
+   remove(arr,size,2);
+   remove(arr,size,0);
+   remove(arr,size,4);
+
 
     // Display the array
     for (int i = 0; i < size; i++) {
         cout << arr[i] << " ";
     }
+    cout<<endl;
+
+     // Display the size
+    cout << "Size: " << size << endl;
 
     return 0;
 }
