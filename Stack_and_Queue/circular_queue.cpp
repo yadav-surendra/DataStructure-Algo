@@ -34,6 +34,7 @@ class CircularQueue{
         {//normal flow
             rear++;
         }
+        
         //push inside the queue
         arr[rear] = value;
         
